@@ -1,0 +1,3 @@
+[submodule "Dependency/Sync"]
+	path = Dependency/Sync
+	url = https://github.com/OsuSync/Sync
