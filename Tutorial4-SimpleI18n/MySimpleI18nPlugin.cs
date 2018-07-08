@@ -18,13 +18,8 @@ namespace SimpleI18n
              * 如果不存在的话会将生成一个默认内容的文件
              */
             I18n.Instance.ApplyLanguage(Language.Instance);
-        }
 
-        public override void OnEnable()
-        {
-            base.OnEnable();
-
-            EventBus.BindEvent<PluginEvents.InitCommandEvent>(e => e.Commands.Dispatch.bind("show_text",arg => {
+            EventBus.BindEvent<PluginEvents.InitCommandEvent>(e => e.Commands.Dispatch.bind("show_text", arg => {
                 IO.CurrentIO.WriteColor(Language.Instance.LANG_Text, ConsoleColor.Green);
                 return true;
             }, Language.Instance.LANG_CommandDescription));

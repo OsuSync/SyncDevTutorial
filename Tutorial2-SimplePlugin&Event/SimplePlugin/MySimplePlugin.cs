@@ -17,19 +17,12 @@ namespace SimplePlugin
         //构造函数必须为空，然后按着作者名和插件名调用父类构造
         public MySimplePlugin() : base("MySimplePlugin", "MikiraSora")
         {
-
-        }
-
-        public override void OnEnable()
-        {
-            base.OnEnable();
-
             //绑定各种事件并注册各种功能,详情 https://github.com/OsuSync/Sync/blob/master/Sync/Plugins/PluginManager.cs#L23-L135
             EventBus.BindEvent<PluginEvents.InitPluginEvent>(OnPluginInit);
 
             //注册命令
             EventBus.BindEvent<PluginEvents.InitCommandEvent>(OnCommandInit);
-            
+
             EventBus.BindEvent<PluginEvents.LoadCompleteEvent>(OnAllPluginLoadedFinish);
 
             //绑定自定义事件
@@ -67,7 +60,7 @@ namespace SimplePlugin
 
         private void OnMySimpleEvent(MySimpleEvent e)
         {
-            logger.LogInfomation(e.Message);
+            logger.LogInfomation("喵喵~"+e.Message);
         }
     }
 }

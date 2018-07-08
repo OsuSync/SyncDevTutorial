@@ -23,11 +23,7 @@ namespace SimpleConfiguration
 
             //将IConfigurable实现类实例提交给配置管理器，并立即加载配置给实例
             config_manager.AddItem(setting);
-        }
 
-        public override void OnEnable()
-        {
-            base.OnEnable();
             EventBus.BindEvent<PluginEvents.InitCommandEvent>(e => {
                 e.Commands.Dispatch.bind("show_config", args => {
                     logger.LogInfomation($"MyOption is \"{setting.MyOption}\" , MyOption2 is \"{setting.MyOption2}\"");
